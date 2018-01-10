@@ -14,7 +14,14 @@ const router = new VueRouter({
 		{
 			path: '/users',
 			component: {
-				template: '<p>ユーザ一覧です。</p>'
+				template: '<p>ユーザ一覧</p>'
+			}
+		},
+		{
+			path: '/user/:userId',
+			name: 'user',
+			component: {
+				template: '<p>ユーザIDは、{{ $route.params.userId }}です。</p>'
 			}
 		}
 	]
