@@ -56,6 +56,40 @@ const router = new VueRouter({
 					component: UserPosts
 				}
 			]
+		},
+		{
+			path: '/clients',
+			redirect: '/client-list'
+		},
+		{
+			path: '/client-list',
+			component: {
+				template: '<p>クライアント一覧だよ</p>'
+			}
+		},
+		{
+			path: '/not-found',
+			component: {
+				template: '<p>404</p>'
+			}
+		},
+		{
+			path: '*',
+			redirect: '/not-found'
+		},
+		{
+			path: '/a',
+			component: {
+				template: '<p>Aですよ</p>'
+			},
+			alias: '/b'
+		},
+		{
+			path: '/c',
+			component: {
+				template: '<p>Cですよ</p>'
+			},
+			alias: ['/d', '/e']
 		}
 	]
 });
