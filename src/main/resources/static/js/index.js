@@ -27,6 +27,52 @@ let UserPosts = {
 	'</div>'
 };
 
+const getUsers = function (callback) {
+	setTimeout(function () {
+		callback(null, [
+			{
+				id: '001',
+				name: 'Takuya Tejima'
+			},
+			{
+				id: '002',
+				name: 'Yohei Noda'
+			}
+		])
+	}, 1000)
+};
+
+const UserList = {
+	template: '#user-list',
+	data: function () {
+		return {
+			loading: false,
+			users: function () {
+				return []
+			},
+			error: null
+		}
+	},
+	created: function () {
+		this.fetchData()
+	},
+	watch: {
+		'$route': 'fetchData'
+	},
+	methods: {
+		fetchData: function () {
+			this.loading = true;
+			getUsers((function (err, users) {
+				this.loading = false;
+				if (err) {
+					this.error = err.toString();
+				} else {
+					this.users = users;
+				}
+			}).bind(this))
+		}
+	}
+};
 
 const router = new VueRouter({
 	routes: [
@@ -38,9 +84,7 @@ const router = new VueRouter({
 		},
 		{
 			path: '/users',
-			component: {
-				template: '<p>ユーザ一覧</p>'
-			}
+			component: UserList
 		},
 		{
 			path: '/user/:userId',

@@ -12,5 +12,17 @@
 		<router-view></router-view>
 	</div>
 	<script src="../../../../../spa-vue-spring/dist/bundle.js"></script>
+	<script type="x-template" id="user-list">
+		<div>
+			<div class="loading" v-if="loading">ロード中</div>
+			<div v-if="error" class="error">
+				{{ error }}
+			</div>
+			<!--usersがロードされたら各ユーザの名前を表示する-->
+			<div v-for="user in users" :key="user.id">
+				<h2>{{ user.name }}</h2>
+			</div>
+		</div>
+	</script>
 </body>
 </html>
