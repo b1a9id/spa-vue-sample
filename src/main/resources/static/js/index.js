@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Hello from './Hello'
 
 Vue.use(VueRouter);
 
@@ -134,10 +135,15 @@ const router = new VueRouter({
 				template: '<p>Cですよ</p>'
 			},
 			alias: ['/d', '/e']
+		},
+		{
+			path: '/hello',
+			component: Hello
 		}
 	]
 });
 
 const app = new Vue({
-	router: router
+	router: router,
+	components: {Hello}
 }).$mount('#app');
