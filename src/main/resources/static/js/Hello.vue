@@ -1,5 +1,5 @@
 <template>
-	<p class="message">メッセージ:{{msg}}</p>
+	<h3 class="message">メッセージ:{{msg}}</h3>
 </template>
 
 <script>

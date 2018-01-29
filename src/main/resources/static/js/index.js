@@ -110,7 +110,7 @@ const router = new VueRouter({
 		{
 			path: '/client-list',
 			component: {
-				template: '<p>クライアント一覧だよ</p>'
+				template: '<h3>クライアント一覧だよ</h3>'
 			}
 		},
 		{
