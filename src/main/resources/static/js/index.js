@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Hello from './Hello'
+import VueMdl from 'vue-mdl';
+import Hello from './Hello';
 
 Vue.use(VueRouter);
 
