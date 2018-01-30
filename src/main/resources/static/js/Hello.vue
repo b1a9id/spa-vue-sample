@@ -5,7 +5,7 @@
 			<input class="mdl-textfield__input" type="text" id="todo" v-model="newTodo" @keyup.enter="addTodo">
 			<label class="mdl-textfield__label" for="todo">ToDo...</label>
 		</div>
-		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+		<button class="mdl-button mdl-js-button mdl-button--fab" @click="addTodo">
 			<i class="material-icons">add</i>
 		</button>
 	</section>
