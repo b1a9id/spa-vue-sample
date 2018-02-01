@@ -1,6 +1,7 @@
 <template>
 	<section id="toDos">
 		<h3 class="message">I want to behave!!!</h3>
+		<p><strong>{{ remaining }}</strong> {{ remaining | pluralize }} left</p>
 		<div class="mdl-textfield mdl-js-textfield">
 			<input class="mdl-textfield__input" type="text" id="todo" v-model="newTodo" @keyup.enter="addTodo">
 			<label class="mdl-textfield__label" for="todo">ToDo...</label>
@@ -39,6 +40,11 @@
 	const filters = {
 		all: function (todos) {
 			return todos;
+		},
+		active: function (todos) {
+			return todos.filter(function (todo) {
+				return !todo.completed;
+			})
 		}
 	};
 
@@ -48,6 +54,11 @@
 				toDos: todoStorage.fetch(),
 				newTodo: '',
 				visibility: 'all'
+			}
+		},
+		filters: {
+			pluralize: function (n) {
+				return n === 1 ? 'item' : 'items';
 			}
 		},
 		methods: {
@@ -79,6 +90,9 @@
 		computed: {
 			filteredTodos: function () {
 				return filters[this.visibility](this.toDos);
+			},
+			remaining: function () {
+				return filters.active(this.toDos).length;
 			}
 		},
 		name: "todo"
