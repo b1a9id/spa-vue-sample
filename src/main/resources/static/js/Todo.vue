@@ -10,12 +10,11 @@
 		</button>
 		<ul class="demo-list-control mdl-list todo-list">
 			<li v-for="todo in filteredTodos" :key="todo.id" class="mdl-list__item" :class="{ completed: todo.completed }">
-				<span class="mdl-list__item-primary-content">{{ todo.title }}</span>
-				<span class="mdl-list__item-secondary-action">
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-						<input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" v-model="todo.completed" />
-					</label>
-				</span>
+				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+					<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" v-model="todo.completed" />
+					<span class="mdl-checkbox__label">{{ todo.title }}</span>
+				</label>
+				<button @click="removeTodo(todo)"></button>
 			</li>
 		</ul>
 	</section>
@@ -63,6 +62,10 @@
 					completed: false
 				});
 				this.newTodo = '';
+			},
+			removeTodo: function (todo) {
+				console.log(todo);
+				this.toDos.splice(this.toDos.indexOf(todo), 1);
 			}
 		},
 		watch: {
