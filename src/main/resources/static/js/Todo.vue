@@ -5,7 +5,7 @@
 			<input class="mdl-textfield__input" type="text" id="todo" v-model="newTodo" @keyup.enter="addTodo">
 			<label class="mdl-textfield__label" for="todo">ToDo...</label>
 		</div>
-		<button class="mdl-button mdl-js-button mdl-button--fab" @click="addTodo">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" @click="addTodo">
 			<i class="material-icons">add</i>
 		</button>
 		<ul class="demo-list-control mdl-list todo-list">
@@ -14,7 +14,7 @@
 					<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" v-model="todo.completed" />
 					<span class="mdl-checkbox__label">{{ todo.title }}</span>
 				</label>
-				<button @click="removeTodo(todo)"></button>
+				<button class="mdl-button mdl-js-button mdl-button--icon  mdl-button--mini-fab" @click="removeTodo(todo)"><i class="material-icons">delete</i></button>
 			</li>
 		</ul>
 	</section>
