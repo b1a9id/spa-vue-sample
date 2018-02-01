@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueMdl from 'vue-mdl';
-import Hello from './Hello';
+import Todo from './Todo';
 
 Vue.use(VueRouter);
 
@@ -138,13 +138,13 @@ const router = new VueRouter({
 			alias: ['/d', '/e']
 		},
 		{
-			path: '/hello',
-			component: Hello
+			path: '/todo',
+			component: Todo
 		}
 	]
 });
 
 const app = new Vue({
 	router: router,
-	components: {Hello}
+	components: {Todo}
 }).$mount('#app');
